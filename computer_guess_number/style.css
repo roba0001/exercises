@@ -1,0 +1,8 @@
+.disabled {
+  pointer-events: none;
+  background-color: rgba(94, 93, 93, 0.479);
+}
+
+button {
+  cursor: pointer;
+}
