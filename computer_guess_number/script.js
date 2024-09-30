@@ -47,8 +47,9 @@ document.querySelector(".start").addEventListener("click", computerGuesses);
 document.querySelector(
   ".computer_guess"
 ).textContent = `Think of a number 0-100 and I'll guess it!`;
-
+numberOfGuesses = 0;
 function computerGuesses() {
+  numberOfGuesses++;
   document.querySelector(".start").classList.add("disabled");
   document.querySelector(".low").classList.remove("disabled");
   document.querySelector(".high").classList.remove("disabled");
@@ -60,6 +61,8 @@ function computerGuesses() {
 }
 
 function guessTooLow() {
+  numberOfGuesses++;
+
   lowNum = computerGuess;
   interval = highNum - lowNum;
   computerGuess = lowNum + interval / 2;
@@ -67,6 +70,8 @@ function guessTooLow() {
 }
 
 function guessTooHigh() {
+  numberOfGuesses++;
+
   highNum = computerGuess;
   interval = highNum - lowNum;
   computerGuess = lowNum + interval / 2;
@@ -76,5 +81,7 @@ function guessTooHigh() {
 function guessCorrect() {
   document.querySelector(
     ".computer_guess"
-  ).textContent = `I guessed right! The number was ${Math.ceil(computerGuess)}`;
+  ).textContent = `I guessed right, the number was ${Math.ceil(
+    computerGuess
+  )}! I guessed it in ${numberOfGuesses} tries`;
 }
