@@ -61,12 +61,12 @@ function showTheseVehicles(arr) {
   arr.forEach((each) => {
     tbodyPointer.innerHTML += `<tr>
   <td>${each.type}</td>
-  <td>${each.fuel}</td>
-  <td>${each.passengers}</td> 
-  <td>${areYouChecked(each.stops)}</td>
-  <td>${areYouChecked(each.ownedBy)}</td>
-  <td>${areYouChecked(each.isElectric)}</td>
-  <td>${areYouChecked(each.isTandem)}</td>
+  <td>${each.fuel ? each.fuel : ` `}</td>
+  <td>${each.passengers ? each.passengers : ` `}</td> 
+  <td>${each.stops ? each.stops : ` `}</td>
+  <td>${each.ownedBy ? each.ownedBy : ` `}</td>
+  <td>${each.isElectric ? each.isElectric : ` `}</td>
+  <td>${each.isTandem ? each.isTandem : ` `}</td>
 </tr>`;
   });
 }
@@ -83,11 +83,6 @@ function areYouChecked(data) {
     // ellers sæt data ind
     return data;
   }
-  // if (each.stops) {
-  //   return "X";
-  // } else {
-  //   return " - ";
-  // }
 }
 
 // shorthand if
