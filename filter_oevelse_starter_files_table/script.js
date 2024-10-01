@@ -10,9 +10,49 @@ const vehicles = [
   { type: "Knallert", fuel: "Benzin", passengers: 1, ownedBy: "Jonas" },
   { type: "Løbehjul", passengers: 1, isElectric: true },
 ];
-const tbodyPointer = document.querySelector("tbody");
-showTheseVehicles(vehicles);
+// FILTRERING
 
+// all electric vehicles
+function isVehicleElectric(vehicle) {
+  if (vehicle.isElectric === true) {
+    return true;
+  }
+}
+const allElectricArr = vehicles.filter(isVehicleElectric);
+
+// more than 2 seats
+function isThereMoreThanTwoSeats(vehicle) {
+  if (vehicle.passengers > 2) {
+    return true;
+  }
+}
+const moreThanTwoArr = vehicles.filter(isThereMoreThanTwoSeats);
+
+// All electric vehicles owned by Jonas
+function isVehicleElectricAndOwnedByJonas(vehicle) {
+  if (vehicle.ownedBy === "Jonas" && vehicle.isElectric === true) {
+    return true;
+  }
+}
+const electricVehicleAndOwnedByJonas = vehicles.filter(isVehicleElectricAndOwnedByJonas);
+
+// all rugbrød vehicles with more than 2 passengers
+function isVehicleBigAndRugbrod(vehicle) {
+  if (vehicle.passengers >= 2 && vehicle.fuel === "Rugbrød") {
+    return true;
+  }
+}
+const bigRugbrodVehicle = vehicles.filter(isVehicleBigAndRugbrod);
+
+// ----------------------------------------------
+
+//specificerer hvor i dommen det skal
+const tbodyPointer = document.querySelector("tbody");
+
+// kører funktionen vis disse vehicles med parameter for hvilke vehicles
+showTheseVehicles(bigRugbrodVehicle);
+
+// putter det ind i dommen
 function showTheseVehicles(arr) {
   arr.forEach((each) => {
     tbodyPointer.innerHTML += `<tr>
