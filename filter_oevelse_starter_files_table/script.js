@@ -83,24 +83,23 @@ function areYouChecked(data) {
     // ellers sæt data ind
     return data;
   }
+  // if (each.stops) {
+  //   return "X";
+  // } else {
+  //   return " - ";
+  // }
 }
-// KNAPPER
-// const button = document.querySelector("button");
-// function checkButtonClick() {
-//   const button = document.querySelector("button");
 
-//   if (button.classlist === ".unfiltered") {
-//     console.log("show all");
-//   } else if (button.classlist === ".elVehicle") {
-//     console.log("show all electric");
-//   }
-// }
-// document.querySelector(".unfiltered").addEventListener("click", showTheseVehicles);
-// document.querySelector(".elVehicle").addEventListener("click", showTheseVehicles);
+// shorthand if
+// ${each.stops ? `<td>${each.stops}</td>`:`<td> - </td>`}
+
+// KNAPPER
+
 document.querySelectorAll("button").forEach((elm) => {
   console.log("elm", elm);
   elm.addEventListener("click", buttonClicks);
 });
+
 function buttonClicks(evt) {
   const whatFilter = evt.currentTarget.dataset.filter;
   console.log("whatFilter", whatFilter);
