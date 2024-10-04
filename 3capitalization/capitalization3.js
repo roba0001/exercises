@@ -1,5 +1,4 @@
-const myName = "PEtER";
-const thirdLetter = myName[2];
+const myName = "Peter";
 const myNameCap =
   myName.substring(0, 2).toLowerCase() +
   myName[2].toUpperCase() +
