@@ -1,0 +1,11 @@
+[data-filter="fox"],
+.fox {
+  background-color: brown;
+  color: black;
+}
+
+[data-filter="bat"],
+.bat {
+  background-color: black;
+  color: white;
+}

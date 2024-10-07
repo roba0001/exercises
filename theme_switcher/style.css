@@ -1,0 +1,63 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+[data-filter="dark"] {
+  /* colors */
+  --header-bg-col: black;
+  --header-txt: white;
+
+  --main-bg-col: rgb(50, 50, 50);
+  --main-txt: white;
+
+  --footer-bg-col: black;
+  --footer-txt: white;
+}
+
+[data-filter="light"] {
+  /* colors */
+  --header-bg-col: white;
+  --header-txt: black;
+
+  --main-bg-col: rgb(201, 201, 201);
+  --main-txt: black;
+
+  --footer-bg-col: white;
+  --footer-txt: black;
+
+  --border-col: black;
+  --border-width: 2rem;
+}
+
+[data-filter="hawaii"] {
+  /* colors */
+  --header-bg-col: rgb(237, 139, 234);
+  --header-txt: rgb(162, 8, 185);
+
+  --main-bg-col: rgb(51, 232, 108);
+  --main-txt: rgb(33, 5, 244);
+
+  --footer-bg-col: rgb(237, 139, 234);
+  --footer-txt: rgb(162, 8, 185);
+}
+
+header {
+  background-color: var(--header-bg-col);
+  color: var(--header-txt);
+  padding: 2rem;
+}
+
+main {
+  background-color: var(--main-bg-col);
+  color: var(--main-txt);
+  padding: 2rem;
+}
+
+footer {
+  background-color: var(--footer-bg-col);
+  color: var(--footer-txt);
+  padding: 2rem;
+}

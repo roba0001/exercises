@@ -37,5 +37,5 @@ localeCheck(locale){
   } else if (locale==="da"){
     headerText=texts.de.texts[0]
     footerText=texts.de.texts[1]
-  }
+  };
 }
