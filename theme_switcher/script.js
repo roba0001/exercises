@@ -5,25 +5,25 @@ const option = document.querySelector("option");
 const body = document.querySelector("body");
 
 // --------  NEM SOLUTION --------
-document.querySelector(".dark").addEventListener("click", changeToDark);
-document.querySelector(".light").addEventListener("click", changeToLight);
-document.querySelector(".hawaii").addEventListener("click", changeToHawaii);
+// document.querySelector(".dark").addEventListener("click", changeToDark);
+// document.querySelector(".light").addEventListener("click", changeToLight);
+// document.querySelector(".hawaii").addEventListener("click", changeToHawaii);
 
-function changeToDark() {
-  console.log("dark clicked");
-  body.setAttribute("data-filter", "dark");
-}
-function changeToLight() {
-  console.log("light clicked");
-  body.setAttribute("data-filter", "light");
-}
-function changeToHawaii() {
-  console.log("hawaii clicked");
-  body.setAttribute("data-filter", "hawaii");
-}
+// function changeToDark() {
+//   console.log("dark clicked");
+//   body.setAttribute("data-filter", "dark");
+// }
+// function changeToLight() {
+//   console.log("light clicked");
+//   body.setAttribute("data-filter", "light");
+// }
+// function changeToHawaii() {
+//   console.log("hawaii clicked");
+//   body.setAttribute("data-filter", "hawaii");
+// }
 
 // ------- PRØVER --------
-// document.querySelector("option").addEventListener("click", changeTheme);
+document.querySelector("option").addEventListener("click", changeTheme);
 
 // function changeTheme() {
 // test 1
@@ -46,7 +46,12 @@ function changeToHawaii() {
 //   }
 // }
 
-// test 3 - fatter ikke hvordan man "restarter" igen
+function changeTheme() {
+  let colorName = evt.target.value;
+  body.setAttribute("theme", colorName);
+}
+
+// test 3 - mangler restart
 // function changeTheme() {
 //   if (option.classList.contains("dark")) {
 //     console.log("here is dark");

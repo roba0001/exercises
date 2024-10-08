@@ -27,9 +27,6 @@ body {
 
   --footer-bg-col: white;
   --footer-txt: black;
-
-  --border-col: black;
-  --border-width: 2rem;
 }
 
 [data-filter="hawaii"] {
