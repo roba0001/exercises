@@ -15,8 +15,10 @@ const Animal = {
 function start() {
   console.log("ready");
   // TODO: Add event-listeners to filter and sort buttons
+
   document.querySelectorAll("button").forEach((button) => {
-    addEventListener("click", btnHandler);
+    //select alle tre knapper, og for hver knap,
+    addEventListener("click", btnHandler); // så add event listener for click der kører funktionen btnHandler
   });
 
   loadJSON();
@@ -24,10 +26,11 @@ function start() {
 
 function btnHandler(evt) {
   const buttons = document.querySelectorAll("button");
-  const filter = evt.target.dataset.filter;
+  const filter = evt.target.dataset.filter; // konstant for den trykkede button's (evt target's) datafilter
   console.log(filter);
 
   function isCat(animal) {
+    //funktion to check om animal (objekt) er kat
     if (animal.type === "cat") {
       return true;
     } else {
@@ -35,22 +38,26 @@ function btnHandler(evt) {
     }
   }
   function isDog(animal) {
+    //funktion to check om animal (objekt) er dog
     if (animal.type === "dog") {
       return true;
     } else {
       return false;
     }
   }
-  const onlyCats = allAnimals.filter(isCat);
-  const onlyDogs = allAnimals.filter(isDog);
+  const onlyCats = allAnimals.filter(isCat); //arrayet filtreret med kun cats
+  const onlyDogs = allAnimals.filter(isDog); //arrayet filtreret med kun dogs
 
   buttons.forEach((button) => {
+    //for hver knap,
     if (filter === "cat") {
-      displayList(onlyCats);
+      //hvis den trykkede knap's data-filter er cat, så
+      displayList(onlyCats); //kør funktionen displayList med kun katte
     } else if (filter === "dog") {
-      displayList(onlyDogs);
-    } else if (filter === "*") {
-      displayList(allAnimals);
+      // ellers hvis den trykkede knap's data-filter er dog, så
+      displayList(onlyDogs); ////kør funktionen displayList med kun katte
+    } else {
+      displayList(allAnimals); //ellers kør funktionen displayList med arrayet allAnimals
     }
   });
 }
@@ -67,7 +74,7 @@ function prepareObjects(jsonData) {
   allAnimals = jsonData.map(preapareObject);
 
   // TODO: This might not be the function we want to call first
-  displayList(allAnimals);
+  displayList(allAnimals); //kør funktionen displayList med arrayet allAnimals
 }
 
 function preapareObject(jsonObject) {
