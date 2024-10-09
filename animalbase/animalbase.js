@@ -16,18 +16,68 @@ function start() {
   console.log("ready");
   // TODO: Add event-listeners to filter and sort buttons
 
-  document.querySelectorAll("button").forEach((button) => {
+  // FILTER
+  document.querySelectorAll("[data-action='filter']").forEach((button) => {
     //select alle tre knapper, og for hver knap,
     addEventListener("click", btnHandler); // så add event listener for click der kører funktionen btnHandler
   });
 
+  // SORT
+  document.querySelectorAll("[data-action='sort']").forEach((button) => {
+    //select alle tre knapper, og for hver knap,
+    addEventListener("click", selectSort); // så add event listener for click der kører funktionen selectSort
+  });
   loadJSON();
+}
+
+function sortList(sortBy) {
+  let sortedList = allAnimals;
+  if (sortBy === "name") {
+    sortedList = sortedList.sort(sortByName);
+    console.log(sortedList);
+  } else if (sortBy === "type") {
+    sortedList = sortedList.sort(sortByType);
+    console.log(sortedList);
+  } else if (sortBy === "age") {
+    sortedList = sortedList.sort(sortByAge);
+    console.log(sortedList);
+  }
+  displayList(sortedList);
+}
+
+function sortByName(animalA, animalB) {
+  if (animalA.name < animalB.name) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
+function sortByType(animalA, animalB) {
+  if (animalA.type < animalB.type) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+function sortByAge(animalA, animalB) {
+  if (animalA.age < animalB.age) {
+    return -1;
+  } else {
+    return 1;
+  }
+}
+
+function selectSort(evt) {
+  const sortBy = evt.target.dataset.sort; // konstant for den trykkede button's (evt target's) datafilter
+  console.log("name, type or age:", sortBy);
+  sortList(sortBy);
 }
 
 function btnHandler(evt) {
   const buttons = document.querySelectorAll("button");
   const filter = evt.target.dataset.filter; // konstant for den trykkede button's (evt target's) datafilter
-  console.log(filter);
+  console.log("cat, dog or all:", filter);
 
   function isCat(animal) {
     //funktion to check om animal (objekt) er kat
