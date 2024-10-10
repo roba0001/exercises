@@ -10,6 +10,7 @@ const Animal = {
   desc: "-unknown animal-",
   type: "",
   age: 0,
+  star: false,
 };
 
 function start() {
@@ -95,6 +96,7 @@ function btnHandler(evt) {
       return false;
     }
   }
+
   const onlyCats = allAnimals.filter(isCat); //arrayet filtreret med kun cats
   const onlyDogs = allAnimals.filter(isDog); //arrayet filtreret med kun dogs
 
@@ -102,10 +104,12 @@ function btnHandler(evt) {
     //for hver knap,
     if (filter === "cat") {
       //hvis den trykkede knap's data-filter er cat, så
-      displayList(onlyCats); //kør funktionen displayList med kun katte
+      console.log("display only cat");
+      displayList(onlyCats); //kør funktionen displayList med onlyCats
     } else if (filter === "dog") {
+      console.log("display only dog");
       // ellers hvis den trykkede knap's data-filter er dog, så
-      displayList(onlyDogs); ////kør funktionen displayList med kun katte
+      displayList(onlyDogs); ////kør funktionen displayList med onlyDogs
     } else {
       displayList(allAnimals); //ellers kør funktionen displayList med arrayet allAnimals
     }
@@ -156,6 +160,12 @@ function displayAnimal(animal) {
   clone.querySelector("[data-field=desc]").textContent = animal.desc;
   clone.querySelector("[data-field=type]").textContent = animal.type;
   clone.querySelector("[data-field=age]").textContent = animal.age;
+
+  if (animal.star === true) {
+    clone.querySelector("[data-field=star]").textContent = "★";
+  } else {
+    clone.querySelector("[data-field=star]").textContent = "☆";
+  }
 
   // append clone to list
   document.querySelector("#list tbody").appendChild(clone);
