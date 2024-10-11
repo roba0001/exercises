@@ -14,15 +14,17 @@ function mouseOverHandler(evt) {
   clientY = evt.clientY; //eventets y pos
 
   //udregnelse af saturationProcent ved brug af y pos og vindushøjde i %
-  let saturationProcent = Math.floor((clientY / windowHeight) * 100);
+  let saturationProcent = Math.round((clientY / windowHeight) * 100);
 
   //udregnelse af lightProcent ved brug af x pos og vindusbredde i %
-  let lightProcent = Math.floor((clientX / windowWidth) * 100);
+  let lightProcent = Math.round((clientX / windowWidth) * 100);
 
   //indsæt saturationProcent og lightProcent ind i en hsl værdi
   let bgColor = `hsl(357, ${saturationProcent}%, ${lightProcent}%)`;
 
+  document.querySelector("h1").textContent = `X: ${lightProcent}, Y: ${saturationProcent} `;
+
   //indsæt hsl værdien i html's baggrundsfarve
-  html.style.setProperty("background-color", bgColor);
+  html.style.setProperty("--bg_color", bgColor);
   console.log(saturationProcent);
 }

@@ -11,6 +11,10 @@ button {
   animation-timing-function: linear;
   animation-iteration-count: 1;
   animation-play-state: running;
+
+  :hover {
+    background-image: linear-gradient(rgb(126, 7, 7) 50%, rgb(126, 7, 7) 50%);
+  }
 }
 
 @keyframes button_animation {
