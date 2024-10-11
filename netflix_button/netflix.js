@@ -1,10 +1,10 @@
-startAnimation();
+startAnimation(); //init
 
 function startAnimation() {
   document.querySelector("html").addEventListener("mousemove", eventHandler);
   document.querySelector("button").addEventListener("animationend", eventHandler);
   document.querySelector("button").addEventListener("click", eventHandler);
-  // mus bevæges over html, animation slutter på button og button klikkes --> kør eventHandler
+  // når mus bevæges over html, animation slutter på button og button klikkes --> kør eventHandler
 }
 
 function eventHandler(evt) {
@@ -27,4 +27,5 @@ function nextScreen() {
 
 function notNextScreen() {
   document.querySelector("button").removeEventListener("animationend", eventHandler); //fjern eventlistener for animationend
+  document.querySelector("button").style.setProperty("background-size", "100%"); // gør baggrundsfarve 100% rød
 }
