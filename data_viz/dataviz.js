@@ -7,5 +7,6 @@ async function fetchData() {
   document.querySelector("p").textContent = `People in queue: ${obj.inQueue}`;
   let number = obj.inQueue;
 
-  //   kør compare funktionen (a,b) den med bolden
+  //   kør compare funktionen (a,b)
+  
 }
